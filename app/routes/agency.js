@@ -38,7 +38,29 @@ router.get('/', (req, res, next) => {
     return res.json(exam.agencies)
 });
 
-router.get('/:id', (req, res, next) => {
+router.get('/:name/hero/:hero', (req, res, next) => {
+  let name = req.params.name;
+  let hero = req.params.hero;
+  exam.agencies.forEach(agency => {
+      if(agency.name === name){
+        agency.heroes.forEach(myHero => {
+          if(myHero.HeroName === hero) {
+            return res.json(myHero);
+          }
+        });
+      }
+    }
+  );
+});
+
+router.get('/:name', (req, res, next) => {
+  let name = req.params.name
+  exam.agencies.forEach(agency => {
+      if(agency.name === name){
+        return res.json(agency);
+      }
+    }
+  );
 });
 
 module.exports=router;
