@@ -39,6 +39,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
+    console.log('not implemented yet, needs to be done after mongodb is implemented');
 });
 
 module.exports=router;
